@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "893327471926",
+    "project_id": "quizdeneme-c347e",
+    "storage_bucket": "quizdeneme-c347e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893327471926:android:24d98916753868511aef97",
+        "android_client_info": {
+          "package_name": "com.ozgursahan.quizzy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTvNWRgWRwdiYq6prH510u7Bcv2B1zY2A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
