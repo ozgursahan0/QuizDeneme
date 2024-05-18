@@ -1,5 +1,7 @@
 package com.ozgursahan.quizzy.views;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -30,7 +32,6 @@ public class SignUpFragment extends Fragment {
     private EditText editEmail , editPass;
     private TextView signInText;
     private Button signUpBtn;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -12,8 +12,8 @@
         android:id="@+id/home_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginBottom="32dp"
         android:text="Go To Home"
         android:textColor="@color/black"
@@ -62,17 +62,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="392dp"
+        android:layout_height="170dp"
+        android:src="@drawable/myshape"
+        app:layout_constraintBottom_toTopOf="@+id/home_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultCoutProgressBar"
+        app:layout_constraintVertical_bias="0.342" />
+
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="16dp"
         android:text="Correct Answers:"
-        android:textColor="@color/gray2"
+        android:textColor="@color/black"
         android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultCoutProgressBar" />
+        app:layout_constraintStart_toStartOf="@id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
     <TextView
         android:id="@+id/textView9"
@@ -80,10 +91,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
-        android:textColor="@color/gray2"
         android:text="Wrong Answers:"
+        android:textColor="@color/black"
         android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/imageView4"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <TextView
@@ -92,10 +103,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
-        android:textColor="@color/gray2"
-        android:textSize="17sp"
         android:text="Not Answered Questions:"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@id/imageView4"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <TextView
@@ -104,9 +115,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:text="NA"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/imageView4"
         app:layout_constraintTop_toTopOf="@+id/textView8" />
 
     <TextView
@@ -115,9 +126,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:text="NA"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/imageView4"
         app:layout_constraintTop_toTopOf="@+id/textView9" />
 
     <TextView
@@ -126,9 +137,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:text="NA"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/imageView4"
         app:layout_constraintTop_toTopOf="@+id/textView10" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

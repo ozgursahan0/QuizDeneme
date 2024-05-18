@@ -19,14 +19,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:background="@color/gray2"
+            android:background="#706F6F"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/quizImageList"
-                android:layout_width="match_parent"
-                android:layout_height="190dp"
+                android:layout_width="380dp"
+                android:layout_height="176dp"
                 android:layout_marginTop="16dp"
                 android:scaleType="fitCenter"
                 app:layout_constraintEnd_toEndOf="parent"

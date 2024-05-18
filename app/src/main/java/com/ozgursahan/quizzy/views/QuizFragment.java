@@ -137,7 +137,6 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         option2Btn.setEnabled(true);
         option3Btn.setEnabled(true);
 
-        ansFeedBackTv.setVisibility(View.INVISIBLE);
         nextQueBtn.setVisibility(View.INVISIBLE);
     }
 
@@ -194,7 +193,6 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         }else{
             nextQueBtn.setVisibility(View.VISIBLE);
             nextQueBtn.setEnabled(true);
-            ansFeedBackTv.setVisibility(View.VISIBLE);
         }
     }
 
@@ -223,7 +221,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     }
 
     private void resetOptions(){
-        ansFeedBackTv.setVisibility(View.INVISIBLE);
+        ansFeedBackTv.setText("");
         nextQueBtn.setVisibility(View.INVISIBLE);
         nextQueBtn.setEnabled(false);
 

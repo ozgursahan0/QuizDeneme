@@ -1,5 +1,9 @@
 package com.ozgursahan.quizzy.views;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,8 +19,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.ozgursahan.quizzy.Adapter.QuizListAdapter;
 import com.ozgursahan.quizzy.Model.QuizListModel;
 import com.ozgursahan.quizzy.R;
@@ -33,6 +40,7 @@ public class ListFragment extends Fragment implements QuizListAdapter.OnItemClic
     private NavController navController;
     private QuizListViewModel viewModel;
     private QuizListAdapter adapter;
+    private SharedPreferences sharedPreferences;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -63,12 +71,45 @@ public class ListFragment extends Fragment implements QuizListAdapter.OnItemClic
 
         recyclerView.setAdapter(adapter);
 
+        //Giriş yapan hesabı toast ile gösterme
+        sharedPreferences = getActivity().getSharedPreferences("acc", Context.MODE_PRIVATE);
+        String userEmail = sharedPreferences.getString("userEmail", "No Email Found");
+        Toast.makeText(getContext(), "Logged in as: " + userEmail, Toast.LENGTH_SHORT).show();
+
         viewModel.getQuizListLiveData().observe(getViewLifecycleOwner(), new Observer<List<QuizListModel>>() {
             @Override
             public void onChanged(List<QuizListModel> quizListModels) {
                 progressBar.setVisibility(View.GONE);
                 adapter.setQuizListModels(quizListModels);
                 adapter.notifyDataSetChanged();
+            }
+        });
+
+        Button logoutButton = view.findViewById(R.id.logoutbtn);
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+                builder.setTitle("Logout");
+                builder.setMessage("Are u sure?")
+                        .setCancelable(true)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // Firebase hesabından çıkış yap
+                                FirebaseAuth.getInstance().signOut();
+                                // Çıkış yapıldığında toast mesajı göster
+                                Toast.makeText(requireContext(), "Logout Successfully", Toast.LENGTH_SHORT).show();
+                                // Çıkış yapıldıktan sonra giriş ekranına yönlendir
+                                navController.navigate(R.id.action_listFragment_to_signInFragment);
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();
             }
         });
 

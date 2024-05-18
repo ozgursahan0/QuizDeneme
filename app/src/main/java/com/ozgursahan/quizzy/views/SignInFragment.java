@@ -1,5 +1,7 @@
 package com.ozgursahan.quizzy.views;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -29,6 +31,7 @@ public class SignInFragment extends Fragment {
     private EditText editEmail , editPass;
     private TextView signUpText;
     private Button signInBtn;
+    private SharedPreferences sharedPreferences;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,6 +48,7 @@ public class SignInFragment extends Fragment {
         editPass = view.findViewById(R.id.passEditSignIn);
         signUpText = view.findViewById(R.id.signUpText);
         signInBtn = view.findViewById(R.id.signInBtn);
+        sharedPreferences = getActivity().getSharedPreferences("acc", Context.MODE_PRIVATE);
 
         signUpText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +68,11 @@ public class SignInFragment extends Fragment {
                         @Override
                         public void onChanged(FirebaseUser firebaseUser) {
                             if (firebaseUser !=null){
+
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putString("userEmail", email);
+                                editor.apply();
+
                                 Toast.makeText(getContext(), "Login Successfully", Toast.LENGTH_SHORT).show();
                                 navController.navigate(R.id.action_signInFragment_to_listFragment);
                             }
