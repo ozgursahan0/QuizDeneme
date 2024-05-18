@@ -6,10 +6,10 @@ plugins {
 
 android {
     compileSdkVersion 34
-    namespace 'com.ozgursahan.quizzy'
+    namespace 'com.ozgursahan.quiz'
 
     defaultConfig {
-        applicationId "com.ozgursahan.quizzy"
+        applicationId "com.ozgursahan.quiz"
         minSdkVersion 23
         targetSdkVersion 34
         versionCode 1

@@ -1,4 +1,4 @@
-package com.ozgursahan.quizzy;
+package com.ozgursahan.quiz;
 
 import org.junit.Test;
 

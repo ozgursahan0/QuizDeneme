@@ -7,6 +7,25 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:893327471926:android:35470a5041e3962f1aef97",
+        "android_client_info": {
+          "package_name": "com.ozgursahan.quiz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTvNWRgWRwdiYq6prH510u7Bcv2B1zY2A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:893327471926:android:24d98916753868511aef97",
         "android_client_info": {
           "package_name": "com.ozgursahan.quizzy"

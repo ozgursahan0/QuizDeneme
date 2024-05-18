@@ -1,4 +1,4 @@
-package com.ozgursahan.quizzy.views;
+package com.ozgursahan.quiz.views;
 
 import android.os.Bundle;
 
@@ -14,8 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.ozgursahan.quizzy.R;
-import com.ozgursahan.quizzy.viewmodel.AuthViewModel;
+import com.ozgursahan.quiz.R;
+import com.ozgursahan.quiz.viewmodel.AuthViewModel;
 
 public class SplashFragment extends Fragment {
 

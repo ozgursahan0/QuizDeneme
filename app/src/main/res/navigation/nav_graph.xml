@@ -6,7 +6,7 @@
     app:startDestination="@id/splashFragment">
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.ozgursahan.quizzy.views.SplashFragment"
+        android:name="com.ozgursahan.quiz.views.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.ozgursahan.quizzy.views.SignUpFragment"
+        android:name="com.ozgursahan.quiz.views.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" >
         <action
@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.ozgursahan.quizzy.views.SignInFragment"
+        android:name="com.ozgursahan.quiz.views.SignInFragment"
         android:label="SignInFragment"
         tools:layout="@layout/fragment_sign_in">
         <action
@@ -42,7 +42,7 @@
     </fragment>
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.ozgursahan.quizzy.views.ListFragment"
+        android:name="com.ozgursahan.quiz.views.ListFragment"
         android:label="fragment_list"
         tools:layout="@layout/fragment_list" >
         <action
@@ -54,7 +54,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.ozgursahan.quizzy.views.DetailFragment"
+        android:name="com.ozgursahan.quiz.views.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
         <action
@@ -67,7 +67,7 @@
     </fragment>
     <fragment
         android:id="@+id/quizFragment"
-        android:name="com.ozgursahan.quizzy.views.QuizFragment"
+        android:name="com.ozgursahan.quiz.views.QuizFragment"
         android:label="fragment_quiz"
         tools:layout="@layout/fragment_quiz" >
         <action
@@ -87,7 +87,7 @@
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
-        android:name="com.ozgursahan.quizzy.views.ResultFragment"
+        android:name="com.ozgursahan.quiz.views.ResultFragment"
         android:label="fragment_result"
         tools:layout="@layout/fragment_result" >
         <action

@@ -1,4 +1,4 @@
-package com.ozgursahan.quizzy.views;
+package com.ozgursahan.quiz.views;
 
 import android.os.Bundle;
 
@@ -16,10 +16,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.ozgursahan.quizzy.R;
-import com.ozgursahan.quizzy.viewmodel.QuestionViewModel;
+import com.ozgursahan.quiz.R;
+import com.ozgursahan.quiz.viewmodel.QuestionViewModel;
 
 import java.util.HashMap;
 

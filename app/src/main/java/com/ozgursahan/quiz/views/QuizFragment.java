@@ -1,4 +1,4 @@
-package com.ozgursahan.quizzy.views;
+package com.ozgursahan.quiz.views;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -22,9 +22,9 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.ozgursahan.quizzy.Model.QuestionModel;
-import com.ozgursahan.quizzy.R;
-import com.ozgursahan.quizzy.viewmodel.QuestionViewModel;
+import com.ozgursahan.quiz.Model.QuestionModel;
+import com.ozgursahan.quiz.R;
+import com.ozgursahan.quiz.viewmodel.QuestionViewModel;
 
 import java.util.HashMap;
 import java.util.List;
@@ -187,7 +187,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
     private void showNextBtn() {
         if (currentQueNo == totalQuestions){
-            nextQueBtn.setText("Submit");
+            nextQueBtn.setText("SUBMIT");
             nextQueBtn.setEnabled(true);
             nextQueBtn.setVisibility(View.VISIBLE);
         }else{

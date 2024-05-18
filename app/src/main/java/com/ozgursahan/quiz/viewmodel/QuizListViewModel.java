@@ -1,12 +1,12 @@
-package com.ozgursahan.quizzy.viewmodel;
+package com.ozgursahan.quiz.viewmodel;
 
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.ozgursahan.quizzy.Model.QuizListModel;
-import com.ozgursahan.quizzy.repository.QuizListRepository;
+import com.ozgursahan.quiz.Model.QuizListModel;
+import com.ozgursahan.quiz.repository.QuizListRepository;
 
 import java.util.List;
 

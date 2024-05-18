@@ -1,4 +1,4 @@
-package com.ozgursahan.quizzy.repository;
+package com.ozgursahan.quiz.repository;
 
 import android.app.Application;
 import android.widget.Toast;

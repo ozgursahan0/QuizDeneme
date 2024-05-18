@@ -1,4 +1,4 @@
-package com.ozgursahan.quizzy.Adapter;
+package com.ozgursahan.quiz.Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +11,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.ozgursahan.quizzy.Model.QuizListModel;
-import com.ozgursahan.quizzy.R;
+import com.ozgursahan.quiz.Model.QuizListModel;
+import com.ozgursahan.quiz.R;
 
 import java.util.List;
 

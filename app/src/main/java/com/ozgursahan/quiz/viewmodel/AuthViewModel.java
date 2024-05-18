@@ -1,4 +1,4 @@
-package com.ozgursahan.quizzy.viewmodel;
+package com.ozgursahan.quiz.viewmodel;
 
 import android.app.Application;
 
@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-import com.ozgursahan.quizzy.repository.AuthRepository;
+import com.ozgursahan.quiz.repository.AuthRepository;
 import com.google.firebase.auth.FirebaseUser;
 
 public class AuthViewModel extends AndroidViewModel {

@@ -1,18 +1,15 @@
-package com.ozgursahan.quizzy.views;
+package com.ozgursahan.quiz.views;
 
-import android.media.Image;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,9 +18,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.ozgursahan.quizzy.Model.QuizListModel;
-import com.ozgursahan.quizzy.R;
-import com.ozgursahan.quizzy.viewmodel.QuizListViewModel;
+import com.ozgursahan.quiz.Model.QuizListModel;
+import com.ozgursahan.quiz.R;
+import com.ozgursahan.quiz.viewmodel.QuizListViewModel;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
-package com.ozgursahan.quizzy.repository;
+package com.ozgursahan.quiz.repository;
 import androidx.annotation.NonNull;
 
-import com.ozgursahan.quizzy.Model.QuestionModel;
+import com.ozgursahan.quiz.Model.QuestionModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;

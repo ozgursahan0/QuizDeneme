@@ -1,4 +1,4 @@
-package com.ozgursahan.quizzy.views;
+package com.ozgursahan.quiz.views;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -15,13 +15,14 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ozgursahan.quizzy.R;
-import com.ozgursahan.quizzy.viewmodel.AuthViewModel;
+import com.ozgursahan.quiz.R;
+import com.ozgursahan.quiz.viewmodel.AuthViewModel;
 import com.google.firebase.auth.FirebaseUser;
 
 

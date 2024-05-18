@@ -1,4 +1,4 @@
-package com.ozgursahan.quizzy.Model;
+package com.ozgursahan.quiz.Model;
 
 import com.google.firebase.firestore.DocumentId;
 

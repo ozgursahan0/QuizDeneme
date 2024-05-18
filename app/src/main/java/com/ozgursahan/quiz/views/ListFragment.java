@@ -1,4 +1,4 @@
-package com.ozgursahan.quizzy.views;
+package com.ozgursahan.quiz.views;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -24,11 +24,10 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.ozgursahan.quizzy.Adapter.QuizListAdapter;
-import com.ozgursahan.quizzy.Model.QuizListModel;
-import com.ozgursahan.quizzy.R;
-import com.ozgursahan.quizzy.viewmodel.AuthViewModel;
-import com.ozgursahan.quizzy.viewmodel.QuizListViewModel;
+import com.ozgursahan.quiz.Adapter.QuizListAdapter;
+import com.ozgursahan.quiz.Model.QuizListModel;
+import com.ozgursahan.quiz.R;
+import com.ozgursahan.quiz.viewmodel.QuizListViewModel;
 
 import java.util.List;
 

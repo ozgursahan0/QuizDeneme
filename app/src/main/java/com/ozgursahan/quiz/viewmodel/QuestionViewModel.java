@@ -1,11 +1,11 @@
-package com.ozgursahan.quizzy.viewmodel;
+package com.ozgursahan.quiz.viewmodel;
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.ozgursahan.quizzy.Model.QuestionModel;
-import com.ozgursahan.quizzy.repository.QuestionRepository;
+import com.ozgursahan.quiz.Model.QuestionModel;
+import com.ozgursahan.quiz.repository.QuestionRepository;
 
 import java.util.HashMap;
 import java.util.List;
