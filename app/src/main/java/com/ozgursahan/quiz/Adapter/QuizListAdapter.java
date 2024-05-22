@@ -18,6 +18,13 @@ import java.util.List;
 
 public class QuizListAdapter extends RecyclerView.Adapter<QuizListAdapter.QuizListViewHolder> {
 
+    /*
+    Bu kod, RecyclerView'da quiz listesini göstermek için kullanılan bir adaptördür.
+    Her bir quiz öğesi için başlık ve resim içeren bir ViewHolder tanımlanmıştır.
+    Ayrıca, öğelere tıklama olaylarını işlemek için bir arayüz kullanılır.
+    Kod, Glide kütüphanesi ile resim yükleme işlemini gerçekleştirir.
+    */
+
     private List<QuizListModel> quizListModels;
     private OnItemClickedListner onItemClickedListner;
 

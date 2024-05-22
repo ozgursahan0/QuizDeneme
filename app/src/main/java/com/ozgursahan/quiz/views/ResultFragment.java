@@ -37,6 +37,7 @@ public class ResultFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // ViewModel'i başlatır
         viewModel = new ViewModelProvider(this , ViewModelProvider.AndroidViewModelFactory
                 .getInstance(getActivity().getApplication())).get(QuestionViewModel.class);
     }
@@ -60,6 +61,7 @@ public class ResultFragment extends Fragment {
         homeBtn = view.findViewById(R.id.home_btn);
 
 
+        // Ana sayfaya dönüş butonu -> DERS LİSTESİNE GİDER(ListFragment)
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,14 +69,16 @@ public class ResultFragment extends Fragment {
             }
         });
 
+        // Quiz ID'sini alır ve ViewModel'e ayarlar
         quizId = ResultFragmentArgs.fromBundle(getArguments()).getQuizId();
 
         viewModel.setQuizId(quizId);
-        viewModel.getResults();
+        viewModel.getResults(); // QuestionRepo'dan sonuçlar alınır
         viewModel.getResultMutableLiveData().observe(getViewLifecycleOwner(), new Observer<HashMap<String, Long>>() {
             @Override
             public void onChanged(HashMap<String, Long> stringLongHashMap) {
 
+                // SONUÇLAR EKRANDA GÖSTERİLİR
                 Long correct = stringLongHashMap.get("correct");
                 Long wrong = stringLongHashMap.get("wrong");
                 Long noAnswer = stringLongHashMap.get("notAnswered");

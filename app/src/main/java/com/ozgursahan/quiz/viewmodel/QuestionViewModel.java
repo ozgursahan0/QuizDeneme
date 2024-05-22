@@ -12,6 +12,7 @@ import java.util.List;
 
 public class QuestionViewModel extends ViewModel implements QuestionRepository.OnQuestionLoad, QuestionRepository.OnResultAdded, QuestionRepository.OnResultLoad {
 
+    // QuestionRepo İLE BİRLİKTE ÇALIŞIR
     private MutableLiveData<List<QuestionModel>> questionMutableLiveData;
     private QuestionRepository repository;
     private MutableLiveData<HashMap<String , Long>> resultMutableLiveData;

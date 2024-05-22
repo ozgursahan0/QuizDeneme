@@ -14,6 +14,11 @@ import java.util.List;
 
 public class QuestionRepository {
 
+    /*
+    FIREBASE'DEN SORULARI VE SONUÇLARI ALMA
+    FIREBASE'E SONUÇLARI YÜKLEME
+     */
+
     private FirebaseFirestore firebaseFirestore;
     private String quizId;
     private HashMap<String , Long> resultMap= new HashMap<>();
@@ -23,6 +28,7 @@ public class QuestionRepository {
     private OnResultLoad onResultLoad;
 
 
+    // SONUÇLARI FIREBASE'DEN ALMA METODU
     public void getResults(){
         firebaseFirestore.collection("Quiz").document(quizId)
                 .collection("results").document(currentUserId)
@@ -41,6 +47,8 @@ public class QuestionRepository {
                 });
     }
 
+
+    // SONUÇLARI FIREBASE'E EKLEME METODU
     public void addResults(HashMap<String , Object> resultMap){
         firebaseFirestore.collection("Quiz").document(quizId)
                 .collection("results").document(currentUserId)
@@ -68,6 +76,7 @@ public class QuestionRepository {
 
     }
 
+    // SORULARI FIREBASE'DEN ALMA
     public void getQuestions(){
         firebaseFirestore.collection("Quiz").document(quizId)
                 .collection("questions").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {

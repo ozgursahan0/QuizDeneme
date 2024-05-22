@@ -14,6 +14,10 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class AuthRepository {
 
+    /*
+    Kullanıcı kayıt-giriş-çıkış metodları bulunur.
+     */
+
     private Application application;
     private MutableLiveData<FirebaseUser> firebaseUserMutableLiveData;
     private FirebaseAuth firebaseAuth;

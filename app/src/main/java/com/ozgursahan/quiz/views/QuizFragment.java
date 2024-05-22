@@ -54,6 +54,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // ViewModel'i başlatır
         viewModel = new ViewModelProvider(this , ViewModelProvider.AndroidViewModelFactory
                 .getInstance(getActivity().getApplication())).get(QuestionViewModel.class);
     }
@@ -82,16 +83,18 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         questionNumberTv = view.findViewById(R.id.quizQuestionsCount);
         progressBar = view.findViewById(R.id.quizCoutProgressBar);
 
+        // Quiz ID'sini alır ve ViewModel'e ayarlar
         quizId = QuizFragmentArgs.fromBundle(getArguments()).getQuizId();
         totalQuestions = 10;
         viewModel.setQuizId(quizId);
-        viewModel.getQuestions();;
+        viewModel.getQuestions();  // QuestionRepo'dan sorular alınır
 
         option1Btn.setOnClickListener(this);
         option2Btn.setOnClickListener(this);
         option3Btn.setOnClickListener(this);
         nextQueBtn.setOnClickListener(this);
 
+        // SINAVDAN ÇIKMA İŞLEMİ
         closeQuizBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,6 +107,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
                         .setMessage("Are you sure you want to quit?")
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
+                                // DERS LİSTESİNE GİDİLİR
                                 navController.navigate(R.id.action_quizFragment_to_listFragment);
                             }
                         })
@@ -118,9 +122,10 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
             }
         });
 
-        loadData();
+        loadData(); // sorular yüklenir
     }
 
+    // sorular yüklenir
     private void loadData(){
         enableOptions();
         loadQuestions(1);
@@ -131,8 +136,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         option2Btn.setVisibility(View.VISIBLE);
         option3Btn.setVisibility(View.VISIBLE);
 
-        //enable buttons , hide feedback tv , hide nextQuiz btn
-
+        //enable buttons, hide feedback tv, hide nextQuiz btn
         option1Btn.setEnabled(true);
         option2Btn.setEnabled(true);
         option3Btn.setEnabled(true);
@@ -145,6 +149,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         viewModel.getQuestionMutableLiveData().observe(getViewLifecycleOwner(), new Observer<List<QuestionModel>>() {
             @Override
             public void onChanged(List<QuestionModel> questionModels) {
+                // Soruları ve seçenekleri yükler
                 questionTv.setText(String.valueOf(currentQueNo) + ") " + questionModels.get(i - 1).getQuestion());
                 option1Btn.setText(questionModels.get(i - 1).getOption_a());
                 option2Btn.setText(questionModels.get(i - 1).getOption_b());
@@ -152,7 +157,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
                 timer = questionModels.get(i-1).getTimer();
                 answer = questionModels.get(i-1).getAnswer();
 
-                //todo set current que no, to que number tv
+                // Soru numarasını günceller ve timer'ı başlatır
                 questionNumberTv.setText(String.valueOf(currentQueNo));
                 startTimer(timer); // initial timer start
             }
@@ -177,7 +182,8 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
             @Override
             public void onFinish() {
-                canAnswer = false;
+                // Süre dolduğunda yapılacak işlemler
+                canAnswer = false; // tekrar işaretleme yapılamaz.
                 ansFeedBackTv.setText("Times Up! No answer selected");
                 notAnswerd ++;
                 showNextBtn();
@@ -185,8 +191,9 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         }.start();
     }
 
+    // süre bittiğinde veya soru cevaplandığında next button gözükür
     private void showNextBtn() {
-        if (currentQueNo == totalQuestions){
+        if (currentQueNo == totalQuestions){ // son sorudan sonra next button->submit button olur
             nextQueBtn.setText("SUBMIT");
             nextQueBtn.setEnabled(true);
             nextQueBtn.setVisibility(View.VISIBLE);
@@ -196,6 +203,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         }
     }
 
+    // Butonlara tıklama
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -208,18 +216,19 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
             case R.id.option3Btn:
                 verifyAnswer(option3Btn);
                 break;
-            case R.id.nextQueBtn:
+            case R.id.nextQueBtn: // yeni sorular
                 if (currentQueNo == totalQuestions){
                     submitResults();
                 }else{
                     currentQueNo ++;
                     loadQuestions(currentQueNo);
-                    resetOptions();
+                    resetOptions(); // yeni sorular
                 }
                 break;
         }
     }
 
+    // sorular resetlenir
     private void resetOptions(){
         ansFeedBackTv.setText("");
         nextQueBtn.setVisibility(View.INVISIBLE);
@@ -232,6 +241,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     }
 
     private void submitResults() {
+        // Sonuçları toplar ve ViewModel'e gönderir
         HashMap<String , Object> resultMap = new HashMap<>();
         resultMap.put("correct" , correctAnswer);
         resultMap.put("wrong" , wrongAnswer);
@@ -239,12 +249,14 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
         viewModel.addResults(resultMap);
 
+        // Sonuç ekranına yönlendirir -> RESULT FRAGMENT
         QuizFragmentDirections.ActionQuizFragmentToResultFragment action =
                 QuizFragmentDirections.actionQuizFragmentToResultFragment();
         action.setQuizId(quizId);
         navController.navigate(action);
     }
 
+    // Cevabı kontrol eder, sayaçlarda tutar.
     private void verifyAnswer(Button button){
         if (canAnswer){
             if (answer.equals(button.getText())){

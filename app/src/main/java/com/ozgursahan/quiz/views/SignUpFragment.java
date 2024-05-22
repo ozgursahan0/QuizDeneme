@@ -25,7 +25,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class SignUpFragment extends Fragment {
 
-    private AuthViewModel viewModel;
+    private AuthViewModel viewModel; // KULLANICI İŞLEMLERİ İÇİN, kimlik doğrulama
     private NavController navController;
     private EditText editEmail , editPass;
     private TextView signInText;
@@ -48,6 +48,7 @@ public class SignUpFragment extends Fragment {
         signInText = view.findViewById(R.id.signInText);
         signUpBtn = view.findViewById(R.id.signUpBtn);
 
+        // SIGN IN EKRANINA GÖNDERİR
         signInText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +56,7 @@ public class SignUpFragment extends Fragment {
             }
         });
 
+        // SIGN UP İŞLEMİ
         signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,7 +67,7 @@ public class SignUpFragment extends Fragment {
                     viewModel.getFirebaseUserMutableLiveData().observe(getViewLifecycleOwner(), new Observer<FirebaseUser>() {
                         @Override
                         public void onChanged(FirebaseUser firebaseUser) {
-                            if (firebaseUser !=null){
+                            if (firebaseUser !=null){ // BAŞARILI KAYIT
                                 Toast.makeText(getContext(), "Registered Successfully", Toast.LENGTH_SHORT).show();
                                 navController.navigate(R.id.action_signUpFragment_to_signInFragment);
                             }
@@ -81,6 +83,8 @@ public class SignUpFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // ViewModel'i oluşturur ve bağlar, bu sayede ViewModel'e erişebiliriz
         viewModel = new ViewModelProvider(this , ViewModelProvider.AndroidViewModelFactory
                 .getInstance(getActivity().getApplication())).get(AuthViewModel.class);
 

@@ -26,6 +26,8 @@ import java.util.List;
 
 public class DetailFragment extends Fragment {
 
+    // Seçilen dersin gösterildiği ekran -> ders adı-soru sayısı-start button bulunur.
+
     private TextView title, totalQuestions;
     private Button startQuizBtn;
     private NavController navController;
@@ -62,6 +64,7 @@ public class DetailFragment extends Fragment {
 
         position = DetailFragmentArgs.fromBundle(getArguments()).getPosition();
 
+        // SEÇİLEN DERSİN BİLGİLERİNİ ÇEKER
         viewModel.getQuizListLiveData().observe(getViewLifecycleOwner(), new Observer<List<QuizListModel>>() {
             @Override
             public void onChanged(List<QuizListModel> quizListModels) {
@@ -75,6 +78,7 @@ public class DetailFragment extends Fragment {
             }
         });
 
+        // Quiz'i başlatır. -> QUIZ FRAGMENT
         startQuizBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

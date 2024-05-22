@@ -11,6 +11,27 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class AuthViewModel extends AndroidViewModel {
 
+    /*
+
+    Genel Açıklama ->
+        Her ViewModel, belirli bir veri kaynağı veya işlem seti için bir repository kullanır
+        ve bu repository'den gelen verileri MutableLiveData aracılığıyla UI bileşenlerine iletir.
+        Bu yapı, verilerin ve işlemlerin daha modüler, test edilebilir ve yönetilebilir olmasını sağlar.
+
+        ViewModel: Android'in MVVM (Model-View-ViewModel) mimarisinde, UI verilerini tutan ve yöneten sınıflardır.
+                   ViewModel sınıfları, veri katmanı ve UI katmanı arasında köprü görevi görür.
+
+        MutableLiveData: MutableLiveData, canlı veri tutmak için kullanılan bir sınıftır.
+                         Bu sınıf, veri değişikliklerini gözlemcilerle (UI bileşenleri gibi) paylaşır,
+                         böylece veriler güncellendiğinde UI otomatik olarak güncellenir.
+
+        Repository: Repository sınıfları, verileri almak, kaydetmek ve yönetmek için kullanılır.
+                    Veritabanı, ağ veya başka bir veri kaynağından gelen verilere erişimi sağlar.
+
+     */
+
+    // AuthRepo İLE BİRLİKTE ÇALIŞIR
+
     private MutableLiveData<FirebaseUser> firebaseUserMutableLiveData;
     private FirebaseUser currentUser;
     private AuthRepository repository;

@@ -34,8 +34,11 @@ public class SplashFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable  Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        // ViewModel'i oluşturur ve bağlar, bu sayede ViewModel'e erişebiliriz
         viewModel = new ViewModelProvider(this , ViewModelProvider.AndroidViewModelFactory
                 .getInstance(getActivity().getApplication())).get(AuthViewModel.class);
+
+        // NavController'i bulur ve bağlar, bu sayede uygulama içi gezinmeyi yönetebiliriz
         navController = Navigation.findNavController(view);
     }
 
@@ -43,17 +46,20 @@ public class SplashFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Handler, belirli bir süre sonra bir işlem gerçekleştirmek için kullanılır
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 if (viewModel.getCurrentUser() != null){
+                    // Daha önce giriş varsa -> QUIZLIST EKRANI
                     navController.navigate(R.id.action_splashFragment_to_listFragment);
                 }else{
+                    // Daha önce giriş yoksa -> SIGNIN EKRANI
                     navController.navigate(R.id.action_splashFragment_to_signInFragment);
                 }
             }
-        }, 4000);
+        }, 4000); // 4 sn
 
     }
 }

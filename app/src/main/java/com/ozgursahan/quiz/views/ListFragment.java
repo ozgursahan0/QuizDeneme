@@ -37,7 +37,7 @@ public class ListFragment extends Fragment implements QuizListAdapter.OnItemClic
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
     private NavController navController;
-    private QuizListViewModel viewModel;
+    private QuizListViewModel viewModel; // dersleri listelemek üzere model
     private QuizListAdapter adapter;
     private SharedPreferences sharedPreferences;
 
@@ -52,6 +52,7 @@ public class ListFragment extends Fragment implements QuizListAdapter.OnItemClic
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // ViewModel'i başlatır
         viewModel = new ViewModelProvider(this , ViewModelProvider.AndroidViewModelFactory
                 .getInstance(getActivity().getApplication())).get(QuizListViewModel.class);
     }
@@ -75,6 +76,8 @@ public class ListFragment extends Fragment implements QuizListAdapter.OnItemClic
         String userEmail = sharedPreferences.getString("userEmail", "No Email Found");
         Toast.makeText(getContext(), "Logged in as: " + userEmail, Toast.LENGTH_SHORT).show();
 
+        // ViewModel'den veri(DERSLER) alarak RecyclerView'a yükler
+        // QuizListRepo'dan -> dersler listelenir
         viewModel.getQuizListLiveData().observe(getViewLifecycleOwner(), new Observer<List<QuizListModel>>() {
             @Override
             public void onChanged(List<QuizListModel> quizListModels) {
@@ -84,6 +87,7 @@ public class ListFragment extends Fragment implements QuizListAdapter.OnItemClic
             }
         });
 
+        // HESAPTAN ÇIKIŞ -> SIGN IN
         Button logoutButton = view.findViewById(R.id.logoutbtn);
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,6 +118,7 @@ public class ListFragment extends Fragment implements QuizListAdapter.OnItemClic
 
     }
 
+    // RecyclerView öğesine(BİR DERSE) tıklanıldığında çalışır -> DERS DETAYI EKRANI(DetailFragment)
     @Override
     public void onItemClick(int position) {
         ListFragmentDirections.ActionListFragmentToDetailFragment action =

@@ -13,6 +13,7 @@ import java.util.List;
 
 public class QuizListRepository {
 
+    // QUIZ VERİLERİNİ ALMAK İÇİN
     private onFirestoreTaskComplete onFirestoreTaskComplete;
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
     private CollectionReference reference = firebaseFirestore.collection("Quiz");

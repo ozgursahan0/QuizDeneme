@@ -12,6 +12,8 @@ import java.util.List;
 
 public class QuizListViewModel extends ViewModel implements QuizListRepository.onFirestoreTaskComplete {
 
+    // QuizListRepo İLE BİRLİKTE ÇALIŞIR
+
     private MutableLiveData<List<QuizListModel>> quizListLiveData = new MutableLiveData<>();
 
     private QuizListRepository repository = new QuizListRepository(this);

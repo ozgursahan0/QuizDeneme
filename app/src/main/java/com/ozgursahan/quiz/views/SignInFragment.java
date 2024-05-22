@@ -27,7 +27,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 
 public class SignInFragment extends Fragment {
-    private AuthViewModel viewModel;
+    private AuthViewModel viewModel; // KULLANICI İŞLEMLERİ İÇİN, kimlik doğrulama
     private NavController navController;
     private EditText editEmail , editPass;
     private TextView signUpText;
@@ -51,6 +51,7 @@ public class SignInFragment extends Fragment {
         signInBtn = view.findViewById(R.id.signInBtn);
         sharedPreferences = getActivity().getSharedPreferences("acc", Context.MODE_PRIVATE);
 
+        // SIGN UP EKRANINA GÖNDERİR
         signUpText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,6 +59,7 @@ public class SignInFragment extends Fragment {
             }
         });
 
+        // SIGN IN İŞLEMİ
         signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,8 +70,9 @@ public class SignInFragment extends Fragment {
                     viewModel.getFirebaseUserMutableLiveData().observe(getViewLifecycleOwner(), new Observer<FirebaseUser>() {
                         @Override
                         public void onChanged(FirebaseUser firebaseUser) {
-                            if (firebaseUser !=null){
+                            if (firebaseUser !=null){ // BAŞARILI GİRİŞ
 
+                                // Toast için maili kaydediyor.
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.putString("userEmail", email);
                                 editor.apply();
@@ -90,6 +93,7 @@ public class SignInFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // ViewModel'i oluşturur ve bağlar, bu sayede ViewModel'e erişebiliriz
         viewModel = new ViewModelProvider(this , ViewModelProvider.AndroidViewModelFactory
                 .getInstance(getActivity().getApplication())).get(AuthViewModel.class);
 
