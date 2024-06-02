@@ -75,7 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Not registered Yet? Sign Up"
+        android:text="Not registered yet? Sign Up"
         android:textColor="@color/gray2"
         android:textSize="16sp"
         android:textStyle="bold"

@@ -14,6 +14,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import android.os.CountDownTimer;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ozgursahan.quiz.Model.QuestionModel;
 import com.ozgursahan.quiz.R;
@@ -77,7 +79,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         option2Btn = view.findViewById(R.id.option2Btn);
         option3Btn = view.findViewById(R.id.option3Btn);
         nextQueBtn = view.findViewById(R.id.nextQueBtn);
-        ansFeedBackTv = view.findViewById(R.id.ansFeedbackTv);
+        //ansFeedBackTv = view.findViewById(R.id.ansFeedbackTv);
         questionTv = view.findViewById(R.id.quizQuestionTv);
         timerCountTv = view.findViewById(R.id.countTimeQuiz);
         questionNumberTv = view.findViewById(R.id.quizQuestionsCount);
@@ -184,7 +186,8 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
             public void onFinish() {
                 // Süre dolduğunda yapılacak işlemler
                 canAnswer = false; // tekrar işaretleme yapılamaz.
-                ansFeedBackTv.setText("Times Up! No answer selected");
+                //ansFeedBackTv.setText("Times Up! No answer selected");
+                Toast.makeText(getContext(),"Times Up! No answer selected",Toast.LENGTH_LONG).show();
                 notAnswerd ++;
                 showNextBtn();
             }
@@ -230,7 +233,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
     // sorular resetlenir
     private void resetOptions(){
-        ansFeedBackTv.setText("");
+        //ansFeedBackTv.setText("");
         nextQueBtn.setVisibility(View.INVISIBLE);
         nextQueBtn.setEnabled(false);
 
@@ -262,11 +265,12 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
             if (answer.equals(button.getText())){
                 button.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.button_bg_correct));
                 correctAnswer++;
-                ansFeedBackTv.setText("Correct Answer");
+                //ansFeedBackTv.setText("Correct Answer");
             }else{
                 button.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.button_bg_wrong));
                 wrongAnswer++;
-                ansFeedBackTv.setText("Wrong Answer \nCorrect Answer: " + answer);
+                //ansFeedBackTv.setText("Wrong Answer \nCorrect Answer: " + answer);
+                Toast.makeText(getContext(),"Correct Answer: "+answer,Toast.LENGTH_LONG).show();
             }
         }
         canAnswer = false;
